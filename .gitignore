@@ -1,0 +1,73 @@
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+.cache/
+.idea/
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# =========================
+# Operating System Files
+# =========================
+
+# OSX
+# =========================
+
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# ignore compiled files
+*.pyc
+
+# ignore excel/ ppt, we only really care about version controlling the code for now
+*.xls
+*.xlsm
+*.pptx
+
+# ignore solver files
+*.mps
+*.sol
+*.idea
+*.cache/*
+
+# ignore build folder from freezing
+build/
+opm_engine/
+
+# ignore power BI
+*.pbix
+
+# Project Exclusions
+resources/.ipynb_checkpoints/*
