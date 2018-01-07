@@ -11,8 +11,8 @@ setup(
     # Versions should comply with PEP440.
     version="0.1.0",
     # Module Short and Long Descriptions.
-    description="",
-    long_description="",
+    description="Bellkor Algorithm",
+    long_description="Running example of the Bellkor Algorithm, uses NumPy.",
     # The project"s main homepage.
     url="",
     # Author Details.
