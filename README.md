@@ -37,5 +37,5 @@ I've created a IPython Notebook [here](resources/Demo.ipynb) which showcases the
 # TODO
 
 *   UnitTests
-*   Document results
+*   Document results using the MovieLens 20M Dataset
 *   2 Part - Blog Post (1 of 2 complete.)
