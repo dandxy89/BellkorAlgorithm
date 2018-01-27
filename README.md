@@ -9,7 +9,7 @@
 
 Implement an Algorithm that had previously won a Data Science / well known competition, in this case the Netflix Grand Prize.
 
-### Long Answer
+#### Long Answer
 
 Firstly, recommendation systems are becoming more and more prevalent as companies are starting to become more data-driven and seeking to improve the customer experience. Its hard deny that personalisation is key in maintaining customer loyalty and engagement of a particular service. Therefore to gain an understanding and appreciation of the methods and implementation details of this algorithm I believe that its a good point in my career to learn and implement one from scratch.
 
