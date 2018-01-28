@@ -34,8 +34,21 @@ I've created a IPython Notebook [here](resources/Demo.ipynb) which showcases the
 *   [MovieLens 20M dataset](https://grouplens.org/datasets/movielens/) - differs from the original but same as the one used in the demo.
 *   [Netflix Grand Prize Info](https://en.wikipedia.org/wiki/Netflix_Prize) - overview of the original competition.
 
+# Testing
+
+Run the following command to start the test suite:
+
+```
+    pytest tests
+```
+
+#### Coverage
+
+```
+    67%
+```
+
 # TODO
 
-*   UnitTests
 *   Document results using the MovieLens 20M Dataset
 *   2 Part - Blog Post (1 of 2 complete.)
