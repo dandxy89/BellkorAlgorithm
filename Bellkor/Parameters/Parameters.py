@@ -5,8 +5,8 @@
 import numpy as np
 
 
-class Parameters:
-    """ Model Parameter Storage
+class Parameters(object):
+    """ Bellkor Parameter Storage
     """
     alpha_p = dict()
     alpha_u = dict()
@@ -21,6 +21,3 @@ class Parameters:
 
     def __repr__(self):
         return "< Model Parameter Storage >"
-
-    def size(self):
-        return len(self.c_u)

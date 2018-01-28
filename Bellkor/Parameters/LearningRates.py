@@ -6,7 +6,7 @@ from Bellkor.Base.Generic import Generic
 
 
 class LearningRates(Generic):
-    """ Learning Rates
+    """ Bellkor Default Learning Rates
     """
     b_u = 5e-3
     alpha_u = 1e-4

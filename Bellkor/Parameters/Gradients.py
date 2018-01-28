@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-""" Bellkor.Parameters.RowSettings
+""" Bellkor.Parameters.Gradients
 """
 from Bellkor.Base.Generic import Generic
 
 
 class Gradients(Generic):
-    """ Row Settings
+    """ Bellkor Gradients
     """
 
     def __init__(self, b_u, alpha_u, b_i, c_u, b_ut, c_ut, b_ibin, p, q, alpha_p):

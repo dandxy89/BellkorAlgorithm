@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-""" Bellkor.Parameters.LearningRates
+""" Bellkor.Parameters.Regularisation
 """
 from Bellkor.Base.Generic import Generic
 
 
 class RegularisationRates(Generic):
-    """ Regularisation Rates
+    """ Bellkor Regularisation Rates
     """
     b_u = 3e-5
     alpha_u = 5e-3

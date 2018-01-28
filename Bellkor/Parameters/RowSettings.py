@@ -16,7 +16,7 @@ class RowSettings(Generic):
     Dev = None
     time_index = None
 
-    def __init__(self, user: int, movie: int, binval: int, time: int, rating: int,
+    def __init__(self, user: int, movie: int, binval: int, time: int, rating: float,
                  b_u, alpha_u, b_i, c_u, b_ut, c_ut, b_ibin, p, q, alpha_p, time_index):
         """ Initialise with these parameters
         """
