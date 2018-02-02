@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 """ Bellkor.Parameters.Generic
 """
+from abc import ABCMeta
 
 
 class Generic:
@@ -17,6 +18,8 @@ class Generic:
     p = None
     q = None
     alpha_p = None
+
+    __metaclass__ = ABCMeta
 
     def __init__(self, b_u, alpha_u, b_i, c_u, b_ut, c_ut, b_ibin, p, q, alpha_p):
         self.b_u = b_u

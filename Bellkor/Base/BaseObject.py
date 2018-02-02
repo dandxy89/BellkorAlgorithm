@@ -3,6 +3,7 @@
 """ Base Object
 """
 import logging
+from abc import ABCMeta, abstractmethod
 
 from Bellkor.Utils.Decorators import timeit
 
@@ -14,7 +15,9 @@ class Model:
     """
     PARAMS = None
 
-    def __init__(self):
+    __metaclass__ = ABCMeta
+
+    def __init__(self, *args):
         """ Initialisation of the Class
         """
         pass
@@ -24,16 +27,19 @@ class Model:
         """
         return "< Base Model Class >"
 
-    def train(self, x, iterations):
+    @abstractmethod
+    def train(self, *args):
         """ Base Training Method
         """
         pass
 
-    def predict(self, x):
+    @abstractmethod
+    def predict(self, *args):
         """ Get a Prediction given an Input dataset
         """
         pass
 
+    @abstractmethod
     def get_params(self):
         """ Get the Model Parameters
         """
