@@ -425,7 +425,7 @@ class BellkorAlgorithm(Model):
         logger = logging.getLogger("BellKor.BellkorAlgorithm.get_gradients")
 
         # Calculate all the Gradients for each Parameter
-        gradients = Gradients(b_u=2 * error * (-1 + 2 * self.REGULARISATION.b_u * rs.b_u),
+        gradients = Gradients(b_u=-2 * error + 2 * self.REGULARISATION.b_u * rs.b_u,
                               alpha_u=2 * error * (-rs.Dev + 2 * self.REGULARISATION.alpha_u * rs.alpha_u),
                               b_ut=2 * error * (-1 + self.REGULARISATION.b_ut * rs.b_ut),
                               b_i=2 * error * (-rs.c_u - rs.c_ut + 2 * self.REGULARISATION.b_i * rs.b_i),

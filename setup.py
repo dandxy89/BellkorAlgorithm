@@ -39,13 +39,13 @@ setup(
     keywords="Netflix, Bellkor",
     # Find all the Projects packages
     packages=find_packages(),
-    install_requires=["pandas==0.22.0",
-                      "notebook==5.5.2",
-                      "ipython==6.2.1"],
+    install_requires=["pandas==0.23.3",
+                      "notebook>5.7.2",
+                      "ipython>6.2.1"],
     # List additional groups of dependencies here (e.g. development dependencies).
     extras_require={
         "developer": ["bumpversion==0.5.3"],
-        "test": ["pytest==3.3.2"],
+        "test": ["pytest>3.3.2"],
         "docs": ["sphinx==1.6.3", "sphinx_rtd_theme"]
     },
     tests_require=["pytest"]
