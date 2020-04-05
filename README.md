@@ -3,6 +3,8 @@
 |---------------------------------------|------------|------------|---------|
 | Re-implementing the Bellkor Algorithm | 06/01/2018 | 05/04/2020 | 0.1.0   |
 
+FYI - This is no-longer actively maintained!
+
 # Motivation
 
 #### Short Answer
