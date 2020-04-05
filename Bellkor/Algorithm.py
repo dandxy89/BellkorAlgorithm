@@ -21,8 +21,8 @@ from Bellkor.Parameters.LearningRates import LearningRates
 from Bellkor.Parameters.Parameters import Parameters
 from Bellkor.Parameters.Regularisation import RegularisationRates
 from Bellkor.Parameters.RowSettings import RowSettings
-from Bellkor.Utils.Decorators import timeit, timeit_debug, test_method
-from Bellkor.Utils.Exceptions import ModelValidationException, ModelIterationException
+from Bellkor.Utils.Decorators import test_method, timeit, timeit_debug
+from Bellkor.Utils.Exceptions import ModelIterationException, ModelValidationException
 
 module_logger = logging.getLogger("BellKor.BellkorAlgorithm")
 random.seed(612018)
