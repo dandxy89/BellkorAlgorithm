@@ -17,7 +17,7 @@ Secondly, I enjoy the challenge of implementing from scratch algorithms and syst
 
 # Bellkor Algorithm
 
-This is an implementation of the “BellKor’s Pragmatic Chaos” final solution, which eventually went on to win the Netflix Grand Prize. 
+This is an implementation of the “BellKor’s Pragmatic Chaos” final solution, which eventually went on to win the Netflix Grand Prize.
 
 The purpose of this algorithm is to predict the ratings using the Bellkor Algorithm. The algoritm uses novel [Feature Engineering](https://en.wikipedia.org/wiki/Feature_engineering) in order to model the temporal properties of the users and times over time.
 

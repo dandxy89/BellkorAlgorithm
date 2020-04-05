@@ -71,3 +71,4 @@ opm_engine/
 
 # Project Exclusions
 resources/.ipynb_checkpoints/*
+.venv

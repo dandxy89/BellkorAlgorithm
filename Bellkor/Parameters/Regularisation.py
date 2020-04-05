@@ -8,6 +8,7 @@ from Bellkor.Base.Generic import Generic
 class RegularisationRates(Generic):
     """ Bellkor Regularisation Rates
     """
+
     b_u = 3e-5
     alpha_u = 5e-3
     b_i = 3e-3

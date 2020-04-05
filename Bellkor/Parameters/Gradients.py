@@ -12,8 +12,18 @@ class Gradients(Generic):
     def __init__(self, b_u, alpha_u, b_i, c_u, b_ut, c_ut, b_ibin, p, q, alpha_p):
         """ Initialise with these parameters
         """
-        super().__init__(b_u=b_u, alpha_u=alpha_u, b_i=b_i, c_u=c_u, b_ut=b_ut, c_ut=c_ut,
-                         b_ibin=b_ibin, p=p, q=q, alpha_p=alpha_p)
+        super().__init__(
+            b_u=b_u,
+            alpha_u=alpha_u,
+            b_i=b_i,
+            c_u=c_u,
+            b_ut=b_ut,
+            c_ut=c_ut,
+            b_ibin=b_ibin,
+            p=p,
+            q=q,
+            alpha_p=alpha_p,
+        )
 
     def __repr__(self):
         return "< Gradients >"
