@@ -16,7 +16,8 @@ def test_method(enable: bool = True, model: str = 'name', test: str = 'test', co
     """ Decorated for tests, captures inputs and results of the method
 
         :param enable:          True/False to enable
-        :param test:            Test_name e.g "my_test" - will create sub-fulder in tests/integrated/my_test/func_1.pkl...
+        :param model:           Expr
+        :param test:            Test_name e.g "my_test" - will create sub-folder in tests/integrated/my_test/func_1.pkl...
         :param conditions:      Mapping of argument names to values, eg. {'year_index': 4, 'solve_method': 'Demand'}
                                 If any of these values are not as specified, the decorator will be disabled for this call.
         :return:
@@ -51,7 +52,7 @@ def test_method(enable: bool = True, model: str = 'name', test: str = 'test', co
                     os.makedirs(path)
 
                 # Pickle Inputs
-                input_file = os.path.join(path, 'input_{}.pkl'.format(method.__name__))
+                input_file = os.path.join(path, )
                 with open(input_file, 'wb') as f:
                     all_args = all_as_args(method, args, kwargs)
                     pickle.dump(all_args, f, protocol=None, fix_imports=True)
@@ -60,7 +61,7 @@ def test_method(enable: bool = True, model: str = 'name', test: str = 'test', co
                 result = method(*args, **kwargs)
 
                 # Pickle Results
-                result_file = os.path.join(path, 'result_{}.pkl'.format(method.__name__))
+                result_file = os.path.join(path, f"result_{method.__name__}.pkl")
                 with open(result_file, 'wb') as f:
                     pickle.dump(result, f, protocol=None, fix_imports=True)
             else:
@@ -81,7 +82,7 @@ def timeit(method):
         result = method(*args, **kw)
         te = time.time()
 
-        logger.info('Method: {} - {} seconds'.format(method.__name__, te - ts))
+        logger.info(f"Method: {method.__name__} - {te - ts} seconds")
         return result
 
     return timed
@@ -95,7 +96,7 @@ def timeit_debug(method):
         result = method(*args, **kw)
         te = time.time()
 
-        logger.debug('Method: {} - {} seconds'.format(method.__name__, te - ts))
+        logger.debug(f"Method: {method.__name__} - {te - ts} seconds")
         return result
 
     return timed

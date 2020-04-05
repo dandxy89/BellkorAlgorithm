@@ -62,21 +62,21 @@ class Model:
         try:
             # Define the full file path
             if full_path is not None:
-                path = "{}/{}.pickle".format(full_path, file_name)
+                path = f"{full_path}/{file_name}.pickle"
             else:
                 # Make a New Directory
                 os.mkdir(default_folder)
-                path = "{}/{}/{}.pickle".format(os.getcwd(), default_folder, file_name)
+                path = f"{os.getcwd()}/{default_folder}/{file_name}.pickle"
 
             # Save the Parameters as a Pickle
             with open(path, 'wb') as handle:
                 pickle.dump(self.PARAMS, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
-            logger.info("Save the Parameters @ {}".format(path))
+            logger.info(f"Save the Parameters @ {path}")
             return path
 
-        except:
-            logger.warning("Failure to save parameters.")
+        except Exception as error:
+            logger.error("Failure to save parameters", error)
             return "FAILURE"
 
     @timeit
@@ -93,9 +93,9 @@ class Model:
             with open(file_path, 'rb') as handle:
                 self.PARAMS = pickle.load(handle)
 
-            logger.info("Loaded the Parameters from {}".format(file_path))
+            logger.info(f"Loaded the Parameters from {file_path}")
             return True
 
-        except:
-            logger.warning("Failure to load parameters.")
+        except Exception as error:
+            logger.warning("Failure to load parameters", error)
             return False
