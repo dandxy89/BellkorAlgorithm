@@ -8,6 +8,7 @@ from abc import ABCMeta
 class Generic:
     """ Generic Collection of Parameters
     """
+
     b_u = None
     alpha_u = None
     b_i = None

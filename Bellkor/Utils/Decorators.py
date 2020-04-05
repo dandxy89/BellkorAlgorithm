@@ -12,7 +12,12 @@ from inspect import signature
 module_logger = logging.getLogger("Bellkor.Utils.Decorators")
 
 
-def test_method(enable: bool = True, model: str = 'name', test: str = 'test', conditions: dict = None):
+def test_method(
+    enable: bool = True,
+    model: str = "name",
+    test: str = "test",
+    conditions: dict = None,
+):
     """ Decorated for tests, captures inputs and results of the method
 
         :param enable:          True/False to enable
@@ -37,7 +42,9 @@ def test_method(enable: bool = True, model: str = 'name', test: str = 'test', co
 
     def all_as_args(method, args, kwargs):
         args = list(args)
-        keyword_or_default_parameters = list(signature(method).parameters.values())[len(args):]
+        keyword_or_default_parameters = list(signature(method).parameters.values())[
+            len(args) :
+        ]
         for parameter in keyword_or_default_parameters:
             args.append(kwargs.get(parameter.name, parameter.default))
         return args
@@ -47,13 +54,15 @@ def test_method(enable: bool = True, model: str = 'name', test: str = 'test', co
         def wrapper(*args, **kwargs):
             if enable and satisfies_conditions(method, args, kwargs):
                 # Create Test Data Directory
-                path = os.path.join("tests/test_data/Bellkor/", model, test, method.__name__)
+                path = os.path.join(
+                    "tests/test_data/Bellkor/", model, test, method.__name__
+                )
                 if not os.path.exists(path):
                     os.makedirs(path)
 
                 # Pickle Inputs
-                input_file = os.path.join(path, )
-                with open(input_file, 'wb') as f:
+                input_file = os.path.join(path)
+                with open(input_file, "wb") as f:
                     all_args = all_as_args(method, args, kwargs)
                     pickle.dump(all_args, f, protocol=None, fix_imports=True)
 
@@ -62,7 +71,7 @@ def test_method(enable: bool = True, model: str = 'name', test: str = 'test', co
 
                 # Pickle Results
                 result_file = os.path.join(path, f"result_{method.__name__}.pkl")
-                with open(result_file, 'wb') as f:
+                with open(result_file, "wb") as f:
                     pickle.dump(result, f, protocol=None, fix_imports=True)
             else:
                 result = method(*args, **kwargs)

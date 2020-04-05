@@ -15,7 +15,18 @@ class TestAllParameterClasses(unittest.TestCase):
     """
 
     def setUp(self):
-        self.TEST_INPUTS = dict(b_u=1, alpha_u=2, b_i=3, c_u=4, b_ut=5, c_ut=6, b_ibin=7, p=8, q=9, alpha_p=10)
+        self.TEST_INPUTS = dict(
+            b_u=1,
+            alpha_u=2,
+            b_i=3,
+            c_u=4,
+            b_ut=5,
+            c_ut=6,
+            b_ibin=7,
+            p=8,
+            q=9,
+            alpha_p=10,
+        )
 
     def test_gradients(self):
         # Define the Gradients
@@ -37,7 +48,15 @@ class TestAllParameterClasses(unittest.TestCase):
 
     def test_row_settings(self):
         # Setup
-        rs = RowSettings(user=1, movie=100, binval=20, time=123123123123, rating=4.5, time_index=1, **self.TEST_INPUTS)
+        rs = RowSettings(
+            user=1,
+            movie=100,
+            binval=20,
+            time=123123123123,
+            rating=4.5,
+            time_index=1,
+            **self.TEST_INPUTS
+        )
 
         # Assertions
         self.assertEqual(rs.User, 1)
@@ -48,6 +67,6 @@ class TestAllParameterClasses(unittest.TestCase):
         self.assertEqual(rs.Dev, 4.123123)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     runner = unittest.TextTestRunner()
     unittest.main(testRunner=runner)

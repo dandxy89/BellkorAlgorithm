@@ -8,6 +8,7 @@ import numpy as np
 class Parameters(object):
     """ Bellkor Parameter Storage
     """
+
     alpha_p = dict()
     alpha_u = dict()
     b_i = dict()

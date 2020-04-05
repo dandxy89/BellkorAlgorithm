@@ -18,7 +18,7 @@ Contains all the Base Classes - used as the foundation for other items:
 
 .. autoclass:: Bellkor.Base.BaseObject.Model
     :members:
-    
+
 .. autoclass:: Bellkor.Base.Generic.Generic
     :members:
 
@@ -29,16 +29,16 @@ Contains all the Model parameters / internal representations:
 
 .. autoclass:: Bellkor.Parameters.Gradients.Gradients
     :members:
-    
+
 .. autoclass:: Bellkor.Parameters.LearningRates.LearningRates
     :members:
-    
+
 .. autoclass:: Bellkor.Parameters.Parameters.Parameters
     :members:
-    
+
 .. autoclass:: Bellkor.Parameters.Resgularisation.RegularisationRates
     :members:
-    
+
 .. autoclass:: Bellkor.Parameters.RowSettings.RowSettings
     :members:
 
@@ -53,9 +53,9 @@ Utils
 
 .. autoclass:: Bellkor.Utils.Exceptions.ModelValidationException
     :members:
-    
+
 .. autoclass:: Bellkor.Utils.Exceptions.ModelIterationException
     :members:
-    
+
 .. autoclass:: Bellkor.Utils.Exceptions.ModelRunException
     :members:

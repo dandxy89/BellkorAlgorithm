@@ -25,6 +25,6 @@ class TestBellkorAlgorithm(unittest.TestCase):
     #     self.assertEqual(len(bk1.PARAMS.p), 138493)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     runner = unittest.TextTestRunner()
     unittest.main(testRunner=runner)

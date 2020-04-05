@@ -15,7 +15,7 @@ The project has been built with Python 3.5.3 (64 bit), once installed open a com
 
 .. code-block:: python
 
-    pip install . -U 
+    pip install . -U
 
     OR
 
@@ -25,7 +25,7 @@ The project has been built with Python 3.5.3 (64 bit), once installed open a com
 Installing the development dependencies and retrieve the data:
 
 .. code-block:: python
-    
+
     pip install -e .[dev]
 
 
@@ -45,7 +45,7 @@ Code Coverage
 -------------
 
 .. code-block:: python
-    
+
     TODO
 
 Contribution
@@ -101,4 +101,3 @@ Here's a quick guide:
     *   You can automatically fix some PEP8 error by running: ```autopep8 -i -r .``` at the project level
     *   When committing, use appropriate, descriptive commit messages. Make sure that your branch history is not a string of "bug fix", "fix", "oops".
     *   All Pull Requests (PR's) need to be approved by another developer, embrace their feedback and update as required.
-

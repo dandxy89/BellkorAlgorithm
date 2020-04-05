@@ -13,6 +13,7 @@ module_logger = logging.getLogger("Bellkor.Base.BaseObject")
 class Model:
     """ Base Model Class
     """
+
     PARAMS = None
 
     __metaclass__ = ABCMeta
@@ -46,7 +47,12 @@ class Model:
         pass
 
     @timeit
-    def pickle_parameters(self, file_name: str, full_path: str = None, default_folder: str = "MODEL_PARAMS") -> str:
+    def pickle_parameters(
+        self,
+        file_name: str,
+        full_path: str = None,
+        default_folder: str = "MODEL_PARAMS",
+    ) -> str:
         """ Pickle the Params
 
             :param file_name:       Name of the File to store the Pickle as
@@ -57,6 +63,7 @@ class Model:
         """
         import os
         import pickle
+
         logger = logging.getLogger("BellKor.BellkorAlgorithm.pickle_parameters")
 
         try:
@@ -69,7 +76,7 @@ class Model:
                 path = f"{os.getcwd()}/{default_folder}/{file_name}.pickle"
 
             # Save the Parameters as a Pickle
-            with open(path, 'wb') as handle:
+            with open(path, "wb") as handle:
                 pickle.dump(self.PARAMS, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
             logger.info(f"Save the Parameters @ {path}")
@@ -87,10 +94,11 @@ class Model:
 
         """
         import pickle
+
         logger = logging.getLogger("BellKor.BellkorAlgorithm.load_parameters")
 
         try:
-            with open(file_path, 'rb') as handle:
+            with open(file_path, "rb") as handle:
                 self.PARAMS = pickle.load(handle)
 
             logger.info(f"Loaded the Parameters from {file_path}")

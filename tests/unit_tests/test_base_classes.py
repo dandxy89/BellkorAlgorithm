@@ -13,8 +13,14 @@ class TestAllBaseObjects(unittest.TestCase):
     """
 
     def setUp(self):
-        self.base_methods_and_attributes = {"PARAMS", "get_params", "load_parameters", "pickle_parameters", "predict",
-                                            "train"}
+        self.base_methods_and_attributes = {
+            "PARAMS",
+            "get_params",
+            "load_parameters",
+            "pickle_parameters",
+            "predict",
+            "train",
+        }
 
     def tearDown(self):
         # Attempt to remove the pickle file and folder...
@@ -30,7 +36,12 @@ class TestAllBaseObjects(unittest.TestCase):
 
         # Assertions
         self.assertEqual(len(self.base_methods_and_attributes), 6)
-        self.assertEqual(len(set(base_model.__dir__()).intersection(self.base_methods_and_attributes)), 6)
+        self.assertEqual(
+            len(
+                set(base_model.__dir__()).intersection(self.base_methods_and_attributes)
+            ),
+            6,
+        )
 
     # def test_pickle_saving(self):
     #     # Setup
@@ -49,6 +60,6 @@ class TestAllBaseObjects(unittest.TestCase):
     #     self.assertEqual(base_model3.PARAMS, {'Test': 1})
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     runner = unittest.TextTestRunner()
     unittest.main(testRunner=runner)
