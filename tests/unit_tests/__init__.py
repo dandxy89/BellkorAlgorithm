@@ -4,4 +4,3 @@
 """
 
 __version__ = "0.1.0"
-__developers__ = "Dan Dixey (2018)"

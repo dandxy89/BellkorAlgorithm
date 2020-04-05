@@ -1,7 +1,7 @@
 
 | Project                               | Created    | Updated    | Version |
 |---------------------------------------|------------|------------|---------|
-| Re-implementing the Bellkor Algorithm | 06/01/2018 | 27/01/2018 | 0.1.0   |
+| Re-implementing the Bellkor Algorithm | 06/01/2018 | 05/04/2020 | 0.1.0   |
 
 # Motivation
 

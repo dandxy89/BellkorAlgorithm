@@ -66,13 +66,13 @@ class BellkorAlgorithm(Model):
             :param n_items:         Number of Items
             :param n_users:         Number of Users
             :param global_mean:     Global Averaged Mean Rating
-            :param time_data:       Time Dictionary containing the Start and End
+            :param time_setting:
             :param matrix_size:     Matrix Width
 
         """
         super().__init__()
         logger = logging.getLogger("BellKor.BellkorAlgorithm.__init__")
-        logger.debug("Initialisation of the Bellkor Algorithm started.")
+        logger.debug("Initialisation of the Bellkor Algorithm started")
 
         # Create the Arrays of Users and Item Lists
         self.USERS = np.arange(n_users)
@@ -81,7 +81,7 @@ class BellkorAlgorithm(Model):
         # Update the Global Mean Parameter
         if global_mean is not None:
             self.GLOBAL_MEAN = global_mean
-            logger.debug("Global Mean stored.")
+            logger.debug("Global Mean stored")
 
         # Set the Time parameters
         if time_setting["Start"] is not None and time_setting["End"] is not None:
@@ -94,7 +94,7 @@ class BellkorAlgorithm(Model):
                                             freq="D").tolist()))
             self.TIME_RANGE = np.arange(len(dt_rng))
             self.TIME_MAP = dict(zip(dt_rng, np.arange(self.TIME_RANGE.shape[0])))
-            logger.debug("Time Parameters stored.")
+            logger.debug("Time Parameters stored")
 
         # Define the User Parameters
         for user in self.USERS:
@@ -108,7 +108,7 @@ class BellkorAlgorithm(Model):
         # Create the Time bases User parameters
         self.PARAMS.b_ut = np.zeros(shape=(self.USERS.shape[0], self.TIME_RANGE.shape[0]))
         self.PARAMS.c_ut = self.PARAMS.b_ut.copy()
-        logger.debug("User Parameters stored.")
+        logger.debug("User Parameters stored")
 
         # Define the Items Parameters
         for item in self.ITEMS:
@@ -117,11 +117,11 @@ class BellkorAlgorithm(Model):
 
         # Create the Time based params for each Item
         self.PARAMS.b_ibin = np.tile(np.arange(30), reps=(self.ITEMS.shape[0], 1)) / 100
-        logger.debug("Item Parameters stored.")
+        logger.debug("Item Parameters stored")
 
-        # Validate the Algorithm has been instantated correctly
+        # Validate the Algorithm has been instantiated correctly
         self._validation()
-        logger.debug("Initisation of the Bellkor Algorithm ended.")
+        logger.debug("Initiation of the Bellkor Algorithm ended")
 
     @timeit_debug
     def _validation(self):
@@ -131,16 +131,16 @@ class BellkorAlgorithm(Model):
 
         """
         if self.START_TIME is None or self.END_TIME is None:
-            raise ModelValidationException(msg="No time constants are known.")
+            raise ModelValidationException(msg="No time constants are known")
 
         if self.TIME_DIFF is None:
-            raise ModelValidationException(msg="Time difference hasn't been calculated.")
+            raise ModelValidationException(msg="Time difference hasn't been calculated")
 
         if self.GLOBAL_MEAN is None:
-            raise ModelValidationException(msg="Global Mean is not known.")
+            raise ModelValidationException(msg="Global Mean is not known")
 
         if self.USERS is None or self.ITEMS is None:
-            raise ModelValidationException(msg="Users or Items directory have not been initialised correctly.")
+            raise ModelValidationException(msg="Users or Items directory have not been initialised correctly")
 
         if self.COST != 0 or self.TOTAL_ERROR != 0 or self.NUM != 0:
             self.COST, self.TOTAL_ERROR, self.NUM = 0, 0, 0
@@ -187,7 +187,7 @@ class BellkorAlgorithm(Model):
 
         # Early return if no data exists
         if x.shape[0] == 0:
-            logger.error("Input data contained no rows.")
+            logger.error("Input data contained no rows")
             return np.array([])
 
         # Collect the Results
@@ -199,12 +199,12 @@ class BellkorAlgorithm(Model):
 
             # Run the Bellkor Algorithm
             prediction, updated_rs = self.run_bellkor(rs=rs, average_times=average_times)
-            logger.debug("Prediction made: {} - Dev {}".format(prediction, updated_rs.Dev))
+            logger.debug(f"Prediction made: {prediction} - Dev {updated_rs.Dev}")
 
             # Collect Result
             collected_results.append([each_index, prediction])
 
-        logger.info("Prediction Time took: {}s".format(time.time() - t1))
+        logger.info(f"Prediction Time took: {time.time() - t1}s")
         # Return Results
         return np.array(collected_results)
 
@@ -233,35 +233,35 @@ class BellkorAlgorithm(Model):
 
         # Check that the number of Iterations is greater or less than 1
         if iterations <= 0:
-            raise ModelIterationException(msg="Incorrect amount of Iterations passed to method.")
+            raise ModelIterationException(msg="Incorrect amount of Iterations passed to method")
         else:
             self.NUM = 0
 
         # Iterate through each Epoch
         for epoch in np.arange(start=0, stop=iterations):
-            logger.info("Running Epoch: {}".format(epoch + 1))
+            logger.info(f"Running Epoch: {epoch + 1}")
             t1 = time.time()
 
             # Sample from the Training Set Index
             for each_index in np.random.choice(x[:, 0], sample_size):
-                logger.debug("Sampling Index: {} during Epoch: {}".format(int(each_index), epoch))
+                logger.debug(f"Sampling Index: {int(each_index)} during Epoch: {epoch}")
 
                 # Get the given Row
                 rs = self.get_row_settings(inputs=x[int(each_index), :])
 
                 # Run the Bellkor Algorithm
                 prediction, updated_rs = self.run_bellkor(rs=rs, average_times=average_times)
-                logger.debug("Prediction made: {} - Dev {}".format(prediction, updated_rs.Dev))
+                logger.debug(f"Prediction made: {prediction} - Dev {updated_rs.Dev}")
                 self.NUM += 1
 
                 # Compute the Cost
                 error = self.compute_cost(rating=rs.Rating, prediction=prediction, rs=updated_rs)
-                logger.debug("Error: {}".format(error))
+                logger.debug(f"Error: {error}")
 
                 # Update the parameters by Gradient Descent
                 self.gradient_decent(error=error, rs=updated_rs)
 
-            logger.info("Epoch: {} took: {}s".format(epoch, time.time() - t1))
+            logger.info(f"Epoch: {epoch} took: {time.time() - t1}s")
 
         # Return Results
         return self.COST / self.NUM, self.TOTAL_ERROR / self.NUM
@@ -298,7 +298,7 @@ class BellkorAlgorithm(Model):
         output = self.GLOBAL_MEAN + rs.b_u + (rs.alpha_u * dev) + rs.b_ut + \
                  (rs.b_i + rs.b_ibin) * (rs.c_u + rs.c_ut) + np.dot(rs.q.T, P)
 
-        logger.debug("Model Prediction: {}".format(output))
+        logger.debug(f"Model Prediction: {output}")
         return output, rs
 
     @timeit_debug
@@ -356,7 +356,7 @@ class BellkorAlgorithm(Model):
         self.PARAMS.q[rs.Movie] -= self.LEARNING_RATES.q * grads.q
         self.PARAMS.alpha_p[rs.User] -= self.LEARNING_RATES.alpha_p * grads.alpha_p
 
-        logger.debug("Gradient Descent: U: {}, M: {}".format(rs.User, rs.Movie))
+        logger.debug(f"Gradient Descent: U: {rs.User}, M: {rs.Movie}")
 
     @timeit_debug
     @test_method(enable=False, model="Algorithm", test="get_params")
@@ -409,7 +409,7 @@ class BellkorAlgorithm(Model):
                          q=self.PARAMS.q[movie],
                          alpha_p=self.PARAMS.alpha_p[user])
 
-        logger.debug("Row Setting: {}".format(rs))
+        logger.debug(f"Row Setting: {rs}")
         return rs
 
     @timeit_debug
@@ -436,5 +436,5 @@ class BellkorAlgorithm(Model):
                               q=2 * error * (-rs.p - rs.alpha_p * rs.Dev) + 2 * self.REGULARISATION.q * rs.q,
                               alpha_p=2 * error * (-rs.q * rs.Dev) + self.REGULARISATION.alpha_p * rs.alpha_p)
 
-        logger.debug("Error: {} -  Gradients: {}".format(error, gradients))
+        logger.debug(f"Error: {error} -  Gradients: {gradients}")
         return gradients
