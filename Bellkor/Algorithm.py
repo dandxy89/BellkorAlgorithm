@@ -28,6 +28,7 @@ module_logger = logging.getLogger("BellKor.BellkorAlgorithm")
 random.seed(612018)
 
 
+# noinspection PyDefaultArgument
 class BellkorAlgorithm(Model):
     """ Implementation of the Original Bellkor Algorithm as presented here:
 
@@ -323,8 +324,8 @@ class BellkorAlgorithm(Model):
         dev = sign * math.pow(delta, 0.4)
         rs.set_dev(dev=dev)
 
-        # Find P
-        P = rs.p + rs.alpha_p * dev
+        # Find p
+        p = rs.p + rs.alpha_p * dev
 
         # Calculate the Model Prediction
         output = (
@@ -333,7 +334,7 @@ class BellkorAlgorithm(Model):
             + (rs.alpha_u * dev)
             + rs.b_ut
             + (rs.b_i + rs.b_ibin) * (rs.c_u + rs.c_ut)
-            + np.dot(rs.q.T, P)
+            + np.dot(rs.q.T, p)
         )
 
         logger.debug(f"Model Prediction: {output}")

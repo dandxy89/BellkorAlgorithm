@@ -63,7 +63,7 @@ class TestAllParameterClasses(unittest.TestCase):
 
         rs.set_dev(4.123123)
 
-        # Further Assetions
+        # Further Assertions
         self.assertEqual(rs.Dev, 4.123123)
 
 

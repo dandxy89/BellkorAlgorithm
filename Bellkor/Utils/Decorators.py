@@ -22,9 +22,9 @@ def test_method(
 
         :param enable:          True/False to enable
         :param model:           Expr
-        :param test:            Test_name e.g "my_test" - will create sub-folder in tests/integrated/my_test/func_1.pkl...
+        :param test:            Test_name e.g "my_test" - will create sub-folder in tests/integrated/my_test/func_1.pkl
         :param conditions:      Mapping of argument names to values, eg. {'year_index': 4, 'solve_method': 'Demand'}
-                                If any of these values are not as specified, the decorator will be disabled for this call.
+                                If any of these values are not as specified, the decorator will be disabled
         :return:
 
     """

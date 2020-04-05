@@ -2,10 +2,7 @@
 # -*- coding: utf-8 -*-
 """ Testing the Bellkor Algorithm
 """
-import pickle
 import unittest
-
-from Bellkor.Algorithm import BellkorAlgorithm
 
 
 class TestBellkorAlgorithm(unittest.TestCase):
