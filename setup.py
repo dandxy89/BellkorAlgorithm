@@ -10,7 +10,7 @@ setup(
     name="BellKor",
     version=__version__,
     description="Bellkor Algorithm",
-    long_description="Running example of the Bellkor Algorithm, uses NumPy.",
+    long_description="An implementation of the “BellKor’s Pragmatic Chaos”'s final solution",
     url="",
     author=__developers__,
     author_email="dan@functorml.co.uk",
