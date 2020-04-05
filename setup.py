@@ -29,7 +29,7 @@ setup(
     keywords=["Netflix", "Bellkor"],
     packages=find_packages(),
     install_requires=[
-        "pandas==0.23.3",
+        "pandas==1.0.3",
         "pytest==5.4.1",
         "notebook==6.0.3",
         "ipython==7.13.0",
