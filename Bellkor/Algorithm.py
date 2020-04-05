@@ -426,15 +426,15 @@ class BellkorAlgorithm(Model):
 
         # Calculate all the Gradients for each Parameter
         gradients = Gradients(b_u=-2 * error + 2 * self.REGULARISATION.b_u * rs.b_u,
-                              alpha_u=2 * error * (-rs.Dev + 2 * self.REGULARISATION.alpha_u * rs.alpha_u),
-                              b_ut=2 * error * (-1 + self.REGULARISATION.b_ut * rs.b_ut),
-                              b_i=2 * error * (-rs.c_u - rs.c_ut + 2 * self.REGULARISATION.b_i * rs.b_i),
-                              b_ibin=2 * error * (-rs.c_u - rs.c_ut + 2 * self.REGULARISATION.b_ibin * rs.b_ibin),
-                              c_u=2 * error * (-rs.b_i - rs.b_ibin + 2 * self.REGULARISATION.c_u * (rs.c_u - 1)),
-                              c_ut=2 * error * (-rs.b_i - rs.b_ibin + 2 * self.REGULARISATION.c_ut * rs.c_ut),
-                              p=2 * error * (rs.q + 2 * self.REGULARISATION.p * rs.p),
-                              q=2 * error * (rs.p + rs.alpha_p * rs.Dev + 2 * self.REGULARISATION.q * rs.q),
-                              alpha_p=2 * error * (rs.q * rs.Dev + self.REGULARISATION.alpha_p * rs.alpha_p))
+                              alpha_u=2 * error * (-rs.Dev) + 2 * self.REGULARISATION.alpha_u * rs.alpha_u,
+                              b_ut=2 * error * (-1) + self.REGULARISATION.b_ut * rs.b_ut,
+                              b_i=2 * error * (-rs.c_u - rs.c_ut) + 2 * self.REGULARISATION.b_i * rs.b_i,
+                              b_ibin=2 * error * (-rs.c_u - rs.c_ut) + 2 * self.REGULARISATION.b_ibin * rs.b_ibin,
+                              c_u=2 * error * (-rs.b_i - rs.b_ibin) + 2 * self.REGULARISATION.c_u * (rs.c_u - 1),
+                              c_ut=2 * error * (-rs.b_i - rs.b_ibin) + 2 * self.REGULARISATION.c_ut * rs.c_ut,
+                              p=2 * error * (-rs.q) + 2 * self.REGULARISATION.p * rs.p,
+                              q=2 * error * (-rs.p - rs.alpha_p * rs.Dev) + 2 * self.REGULARISATION.q * rs.q,
+                              alpha_p=2 * error * (-rs.q * rs.Dev) + self.REGULARISATION.alpha_p * rs.alpha_p)
 
         logger.debug("Error: {} -  Gradients: {}".format(error, gradients))
         return gradients
