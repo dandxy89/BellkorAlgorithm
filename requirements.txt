@@ -1,4 +1,4 @@
-ipython==7.13.0
+ipython==7.16.3
 notebook==6.4.1
 numpy==1.18.2
 pandas==1.0.3
