@@ -33,7 +33,7 @@ setup(
         "pytest==5.4.1",
         "notebook==6.4.1",
         "numpy==1.18.2",
-        "ipython==7.13.0",
+        "ipython==7.16.3",
     ],
     tests_require=["pytest==5.4.1"],
 )
