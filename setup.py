@@ -32,7 +32,7 @@ setup(
         "pandas==1.0.3",
         "pytest==5.4.1",
         "notebook==6.4.12",
-        "numpy==1.21.0",
+        "numpy==1.22.0",
         "ipython==7.16.3",
     ],
     tests_require=["pytest==5.4.1"],
