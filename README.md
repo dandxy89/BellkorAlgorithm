@@ -13,9 +13,9 @@ Implement an Algorithm that had previously won a Data Science / well known compe
 
 #### Long Answer
 
-Firstly, recommendation systems are becoming more and more prevalent as companies are starting to become more data-driven and seeking to improve the customer experience. Its hard deny that personalisation is key in maintaining customer loyalty and engagement of a particular service. Therefore to gain an understanding and appreciation of the methods and implementation details of this algorithm I believe that its a good point in my career to learn and implement one from scratch.
+Firstly, as companies increasingly adopt data-driven approaches and prioritize enhancing customer experiences, recommendation systems are gaining prominence. It's evident that personalization is crucial for fostering customer loyalty and engagement. Therefore, delving into the intricacies and implementation of these algorithms seems opportune for advancing my career.
 
-Secondly, I enjoy the challenge of implementing from scratch algorithms and systems in my own time primarily to learn how to translate complex ideas into code. Also the feature engineering that was applied and used to predict the ratings and is explained and derived very well in the [paper](https://netflixprize.com/assets/GrandPrize2009_BPC_BellKor.pdf) is very clear and concise. Finally, the challenge of retracing the steps the original researchers/developers might have taken to get to their own implementation is definitely a learning strategy I like to pursue.
+Secondly, I relish the task of building algorithms and systems from scratch in my spare time, primarily to master the art of translating intricate concepts into code. Moreover, the paper's elucidation of feature engineering used for rating prediction is exceptionally clear and succinct. Lastly, I find great value in the challenge of retracing the footsteps of original researchers and developers to understand their implementation strategies, which aligns with my preferred learning approach.
 
 # Bellkor Algorithm
 
