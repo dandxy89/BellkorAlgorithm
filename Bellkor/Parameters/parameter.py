@@ -1,13 +1,8 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-""" Bellkor.Parameters.Parameters
-"""
 import numpy as np
 
 
-class Parameters(object):
-    """ Bellkor Parameter Storage
-    """
+class Parameters:
+    """Bellkor Parameter Storage"""
 
     alpha_p = dict()
     alpha_u = dict()

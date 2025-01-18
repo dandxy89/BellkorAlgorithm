@@ -1,13 +1,8 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-""" Bellkor.Parameters.RowSettings
-"""
-from Bellkor.Base.Generic import Generic
+from bellkor.base.generic import Generic
 
 
 class RowSettings(Generic):
-    """ Row Settings
-    """
+    """Row Settings"""
 
     User = None
     Movie = None
@@ -36,8 +31,7 @@ class RowSettings(Generic):
         alpha_p,
         time_index,
     ):
-        """ Initialise with these parameters
-        """
+        """Initialise with these parameters"""
         super().__init__(
             b_u=b_u,
             alpha_u=alpha_u,

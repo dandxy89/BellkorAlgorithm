@@ -1,13 +1,8 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-""" Bellkor.Parameters.Generic
-"""
 from abc import ABCMeta
 
 
 class Generic:
-    """ Generic Collection of Parameters
-    """
+    """Generic Collection of Parameters"""
 
     b_u = None
     alpha_u = None

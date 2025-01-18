@@ -1,13 +1,8 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-""" Bellkor.Parameters.LearningRates
-"""
-from Bellkor.Base.Generic import Generic
+from bellkor.base.generic import Generic
 
 
 class LearningRates(Generic):
-    """ Bellkor Default Learning Rates
-    """
+    """Bellkor Default Learning Rates"""
 
     b_u = 5e-3
     alpha_u = 1e-4

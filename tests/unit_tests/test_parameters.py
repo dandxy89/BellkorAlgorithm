@@ -1,18 +1,13 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-""" Testing Bellkor Parameter Classes
-"""
 import unittest
 
-from Bellkor.Parameters.Gradients import Gradients
-from Bellkor.Parameters.LearningRates import LearningRates
-from Bellkor.Parameters.Regularisation import RegularisationRates
-from Bellkor.Parameters.RowSettings import RowSettings
+from bellkor.parameters.gradient import Gradients
+from bellkor.parameters.learning_rate import LearningRates
+from bellkor.parameters.regularisation import RegularisationRates
+from bellkor.parameters.row import RowSettings
 
 
 class TestAllParameterClasses(unittest.TestCase):
-    """ Testing all the Classes located in the Parameters sub-directory
-    """
+    """Testing all the Classes located in the Parameters sub-directory"""
 
     def setUp(self):
         self.TEST_INPUTS = dict(
@@ -55,18 +50,14 @@ class TestAllParameterClasses(unittest.TestCase):
             time=123123123123,
             rating=4.5,
             time_index=1,
-            **self.TEST_INPUTS
+            **self.TEST_INPUTS,
         )
 
-        # Assertions
         self.assertEqual(rs.User, 1)
 
         rs.set_dev(4.123123)
-
-        # Further Assertions
         self.assertEqual(rs.Dev, 4.123123)
 
 
 if __name__ == "__main__":
-    runner = unittest.TextTestRunner()
-    unittest.main(testRunner=runner)
+    unittest.main()

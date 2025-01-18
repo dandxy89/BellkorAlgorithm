@@ -1,50 +1,36 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-""" Base Object
-"""
 import logging
 from abc import ABCMeta, abstractmethod
 
-from Bellkor.Utils.Decorators import timeit
+from bellkor.utils.decorator import timeit
 
 module_logger = logging.getLogger("Bellkor.Base.BaseObject")
 
 
 class Model:
-    """ Base Model Class
-    """
+    """Base Model Class"""
 
     PARAMS = None
 
     __metaclass__ = ABCMeta
 
     def __init__(self, *args):
-        """ Initialisation of the Class
-        """
-        pass
+        """Initialisation of the Class"""
 
     def __repr__(self):
-        """ Used in the Python debugger
-        """
+        """Used in the Python debugger"""
         return "< Base Model Class >"
 
     @abstractmethod
     def train(self, *args):
-        """ Base Training Method
-        """
-        pass
+        """Base Training Method"""
 
     @abstractmethod
     def predict(self, *args):
-        """ Get a Prediction given an Input dataset
-        """
-        pass
+        """Get a Prediction given an Input dataset"""
 
     @abstractmethod
     def get_params(self):
-        """ Get the Model Parameters
-        """
-        pass
+        """Get the Model Parameters"""
 
     @timeit
     def pickle_parameters(
@@ -53,12 +39,12 @@ class Model:
         full_path: str = None,
         default_folder: str = "MODEL_PARAMS",
     ) -> str:
-        """ Pickle the Params
+        """Pickle the Params
 
-            :param file_name:       Name of the File to store the Pickle as
-            :param full_path:       Full file path not including the file name
-            :param default_folder:  Default folder name when creating one
-            :return:                FilePath where its stored
+        :param file_name:       Name of the File to store the Pickle as
+        :param full_path:       Full file path not including the file name
+        :param default_folder:  Default folder name when creating one
+        :return:                FilePath where its stored
 
         """
         import os
@@ -88,9 +74,9 @@ class Model:
 
     @timeit
     def load_parameters(self, file_path) -> bool:
-        """ Load the Parameters from a filePath
+        """Load the Parameters from a filePath
 
-            :param file_path:    File path to load Model Parameters from
+        :param file_path:    File path to load Model Parameters from
 
         """
         import pickle
